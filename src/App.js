@@ -16,7 +16,7 @@ class App extends React.Component {
 
   render() {
     return <React.Fragment>
-      {this.state.data.map(item => componentize(item))}
+      {this.state.data.map(componentize)}
       </React.Fragment>;
   }
 
