@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import componentize from './componentize';
-import Http from './http';
+import Backend from './backend';
 
 class App extends React.Component {
 
@@ -11,7 +11,7 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    global.http = new Http(this).start();
+    global.backend = new Backend(this).start();
   }
 
   render() {

@@ -25,6 +25,7 @@
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.4);
+  z-index: 1
 }
 
 .amateur-modal {
@@ -43,9 +44,48 @@
   top: 0;
   right: 0;
   cursor: pointer;
+
 }
 
 .amateur-login-link {
   cursor: pointer;
   text-decoration: underline;
+}
+
+.amateur-suggestion {
+  display: inline-block;
+  width: 240px;
+  height: 240px;
+  overflow: hidden;
+  background-color: rgba(200, 200, 200);
+  margin: 8px;
+  position: relative;
+}
+
+.amateur-thumbnail-container {
+  width: 90%;
+  height: 60%;
+  margin: auto;
+}
+
+.amateur-thumbnail {
+  display: block;
+  margin: auto;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.amateur-profile-picture {
+  width: 20%;
+  height: 20%;
+  position: absolute;
+  left: 8px;
+  bottom: 20px;
+  float: left;
+}
+
+.amateur-username {
+  position: absolute;
+  bottom: 40px;
+  left: 80px;
 }

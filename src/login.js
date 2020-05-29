@@ -1,4 +1,5 @@
 import React from 'react';
+import Form from './form';
 
 class Login extends React.Component {
 
@@ -32,27 +33,7 @@ class Login extends React.Component {
           <span onClick={this.setInvisible} className="amateur-close-modal-button">
             &#x2715;
           </span>
-          <p>
-            <label htmlFor="amateur-username-input">Username</label>
-            <input
-              ref={input => this.username = input}
-              type="text"
-              id="amateur-username-input"
-              className="amateur-text-input"
-            />
-          </p>
-          <p>
-            <label htmlFor="amateur-password-input">Password</label>
-            <input
-              ref={input => this.password = input}
-              type="password"
-              id="amateur-password-input"
-              className="amateur-text-input"
-            />
-          </p>
-          <p>
-            <input type="submit" />
-          </p>
+          <Form data={this.props.data} />
         </div>
       </div>
     </React.Fragment>;

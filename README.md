@@ -1,68 +1,65 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Concept and Motivation
 
-## Available Scripts
+This is a proof of concept for Amateur, a web app for sharing and organizing
+images. (Though at the moment, it's incomplete even for a proof of concept...)
 
-In the project directory, you can run:
+The reason for this project is that I was dissatisfied with how apps for sorting
+images tend to only allow the user to make a binary distinction between
+favorites and non-favorites. This means the user has no way of distinguishing
+between their absolute favorites, the ones they think are pretty good but not
+amazing, and so on. Systems that allow the user to assign ratings out of five
+stars mitigate this, but suffer from their own problem: In the context of
+ratings out of five stars, a low rating is generally considered bad. If we
+assume that users are specifically rating images they like, then this renders
+the lower ratings either useless (because the user won't assign a low rating to
+a file they like), or misleading (because if the user assigns a low rating to an
+image because they like it but not especially so, then this will give the
+impression that they actually dislike that image).
 
-### `yarn start`
+The solution I thought of, inspired by a manga-reading app called GANMA!, is to
+allow users to like an image as many times as they want. Since a like is always
+positive, this means that lower ratings carry no negative connotation. And since
+there's no predefined maximum rating, the user can decide on their own scale for
+rating images on.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+In addition to this, I am planning to implement a tagging system. Hierarchical
+directories generally don't seem to work well for images, since there's so much
+overlap between categories.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+The name "Amateur" is a reference to the root meaning of the word, namely
+"lover" (which came to its present meaning by the progression "lover" -> "one
+who practices a skill for fun as opposed to professionally" -> "a beginner,
+hobbyist, or someone who's bad at something"), because this app would let you
+like something as much as you want. 
 
-### `yarn test`
+# A Note on Architecture
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+At the moment, the back end is mocked out, but I'm trying to make this app
+conform as much as possible to HATEOAS. This means that all URL's are
+provided by the server, not constructed by the client.
 
-### `yarn build`
+One result of this is that forms are constructed automatically. The server tells
+the client what actions are allowed on an object, what URL's to send to to
+perform each action, what HTTP method to use, and what parameters are required.
+The front end constructs a form with the required fields accordingly.
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Another result is that the server's responses closely mirror the website's
+interface. Essentially, the server emits a JSON skeleton of the website, and the
+front end simply converts this to HTML.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+# Running
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+To start the app, you'll need to have NPM installed. Once you do, open a
+terminal in the project root directory and run
 
-### `yarn eject`
+`npm install`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Then run
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+`yarn start`
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+To finish, with keyboard focus on the terminal, hit ctrl-C.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Since this is still very much a work in progress, many of the links won't work.
+If you get to a state where you can't go back, hit F5 to return to the entry
+point.
