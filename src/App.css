@@ -60,6 +60,10 @@
   background-color: rgba(200, 200, 200);
   margin: 8px;
   position: relative;
+  padding-top: 8px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 .amateur-thumbnail-container {
@@ -73,6 +77,7 @@
   margin: auto;
   max-width: 100%;
   max-height: 100%;
+  cursor: pointer;
 }
 
 .amateur-profile-picture {
@@ -88,4 +93,48 @@
   position: absolute;
   bottom: 40px;
   left: 80px;
+}
+
+.amateur-image-viewer {
+  background-color: rgba(200, 200, 200);
+  padding: 8px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.amateur-image-container {
+  width: 50%;
+  height: 100%;
+  display: inline-block;
+  margin: 8px;
+}
+
+.amateur-image {
+  display: block;
+  margin: atuo;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.amateur-image-controls {
+  display: inline-block;
+}
+
+button {
+  margin: 8px;
+}
+
+input {
+  margin: 8px;
+}
+
+.amateur-tag-container {
+  background-color: white;
+  border: 1px solid black;
+}
+
+.amateur-tag {
+  background: rgba(200, 200, 200);
+  margin: 2px;
 }
